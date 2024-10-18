@@ -1,6 +1,8 @@
 // complete the function source
 #include "../include/gen_number.h"
 #include <cstdlib>
+#include <iostream>
+#include <cmath>
 
 int generateNum(){
     int num = rand() % 90 + 10;
@@ -31,10 +33,36 @@ int sumDigits(int num){
 
 int raisePow2_3_4(int num, int exp){
     if (exp == 2 || exp == 3 || exp == 4){
-        pow()
+        return pow(num, exp);
+    }else{
+        std::cout << "Only power 2, 3, or 4 is allowed." << std::endl;
+        return num;
     }
 }
 
-int raiseFirstDigitPowSecondDigit(int num)
+int raiseFirstDigitPowSecondDigit(int num){
+    if (num >= 10 && num <= 99) {
+        int firstDigit = num / 10;
+        int secondDigit = num % 10;
+        return pow(firstDigit, secondDigit);
+    } else {
+        std::cout << "The number must be two digits in length." << std::endl;
+        return num;
+    }
+}
 
-int raiseFirstAndSecondDigitPowThirdDigit(int num)
+int raiseFirstAndSecondDigitPowThirdDigit(int num){
+    if (num >= 100 && num <= 999) {
+        int firstTwoDigits = num / 10;
+        int lastDigit = num % 10;
+        if (lastDigit <= 4) {
+            return pow(firstTwoDigits, lastDigit);
+        } else {
+            std::cout << "The last digit must be <= 4." << std::endl;
+            return num;
+        }
+    } else {
+        std::cout << "The number must be three digits in length." << std::endl;
+        return num;
+    }
+}
