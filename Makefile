@@ -2,17 +2,20 @@
 CXX = g++ -Wall -Werror -I include/
 all: problem1 problem2
 
-problem1: problem1_main.cpp lib/object1.o lib/object2.o
-    $(CXX) problem1_main.cpp lib/object1.o lib/object2.o -o problem1
+problem1: problem1_main.cpp lib/gen_number.o lib/post_process.o lib/print_menu.o
+	$(CXX) problem1_main.cpp lib/gen_number.o lib/post_process.o lib/print_menu.o -o problem1
 
-problem2: problem2_main.cpp lib/object1.o lib/object2.o
-    $(CXX) problem2_main.cpp lib/object1.o lib/object2.o -o problem2
+problem2: problem2_main.cpp lib/gen_number.o lib/post_process.o lib/print_menu.o
+	$(CXX) problem2_main.cpp lib/gen_number.o lib/post_process.o lib/print_menu.o -o problem2
 
-lib/object1.o: src/object1.cpp include/object1.h
-    $(CXX) -c src/object1.cpp -o lib/object1.o
+lib/gen_number.o: src/gen_number.cpp include/gen_number.h
+	$(CXX) -c src/gen_number.cpp -o lib/gen_number.o
 
-lib/object2.o: src/object2.cpp include/object2.h
-    $(CXX) -c src/object2.cpp -o lib/object2.o
+lib/post_process.o: src/post_process.cpp include/post_process.h
+	$(CXX) -c src/post_process.cpp -o lib/post_process.o
+
+lib/print_menu.o: src/print_menu.cpp include/print_menu.h
+	$(CXX) -c src/print_menu.cpp -o lib/print_menu.o
 
 clean:
-    rm -f lib/*.o problem1 problem2
+	rm -f lib/*.o problem1 problem2
