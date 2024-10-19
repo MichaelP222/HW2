@@ -1,5 +1,6 @@
 // complete the source code
 #include "../include/post_process.h"
+#include <cmath>
 
 bool isNumPrime(int num){
     if (num <= 1){
