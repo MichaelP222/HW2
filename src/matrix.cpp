@@ -7,8 +7,6 @@
 using namespace std;
 
 void fileIO(string filename, int A[][AR_CAP], int& n1, int& m1, int B[][AR_CAP], int& n2, int& m2){
-    cout << "Enter filename for both matrices: ";
-    cin >> filename;
     ifstream infile;
     infile.open(filename);
     if (!infile.is_open()){
@@ -135,7 +133,7 @@ double matrixDeterminant3D(int M[3][3]){
 void print2DMatrix(const int M[][AR_CAP], int n1, int m1){
     for (int i = 0; i < n1; i++){
         for (int j = 0; j < m1; j++){
-            cout << M[i][j];
+            cout << M[i][j] << ' ';
         }
         cout << endl;
     }
