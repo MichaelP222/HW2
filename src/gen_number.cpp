@@ -9,11 +9,11 @@ int generateNum(){
     return num;
 }
 
-int doubleNum(int& num){
+int doubleNum(int num){
     return (num * 2);
 }
 
-int reverseDigit(int& num){
+int reverseDigit(int num){
     int reversed = 0;
     while (num > 0) {
         reversed = reversed * 10 + (num % 10);
